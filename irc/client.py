@@ -497,6 +497,7 @@ class ServerConnection(Connection):
         self.ircname = ircname or nickname
         self.password = password
         self.connect_factory = connect_factory
+        self.caps = caps
         try:
             self.socket = self.connect_factory(self.server_address)
         except socket.error as ex:
@@ -507,6 +508,8 @@ class ServerConnection(Connection):
         # Log on...
         if self.password:
             self.pass_(self.password)
+        if self.caps:
+            self.send_raw("CAP REQ :"+" ".join(self.caps))
         self.nick(self.nickname)
         self.user(self.username, self.ircname)
         return self
