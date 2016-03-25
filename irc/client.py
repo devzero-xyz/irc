@@ -460,7 +460,7 @@ class ServerConnection(Connection):
     # save the method args to allow for easier reconnection.
     @irc_functools.save_method_args
     def connect(self, server, port, nickname, password=None, username=None,
-            ircname=None, connect_factory=connection.Factory(), caps):
+            ircname=None, connect_factory=connection.Factory(), caps=None):
         """Connect/reconnect to a server.
 
         Arguments:
