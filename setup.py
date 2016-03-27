@@ -35,6 +35,7 @@ setup_params = dict(
         'jaraco.text',
         'jaraco.itertools',
         'jaraco.logging',
+        'jaraco.functools>=1.5',
         'pytz',
     ],
     dependency_links=[
