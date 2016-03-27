@@ -38,9 +38,6 @@ setup_params = dict(
         'jaraco.functools>=1.5',
         'pytz',
     ],
-    dependency_links=[
-        'git+https://github.com/devzero-xyz/jaraco.functools.git#egg=jaraco.functools',
-    ],
     extras_require={
     },
     setup_requires=[
