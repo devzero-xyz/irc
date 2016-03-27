@@ -986,12 +986,12 @@ class ServerConnection(Connection):
                                          max and (" " + max),
                                          server and (" " + server)))
 
-    def set_rate_limit(self, frequency):
+    def set_rate_limit(self, frequency, skip=0):
         """
         Set a `frequency` limit (messages per second) for this connection.
         Any attempts to send faster than this rate will block.
         """
-        self.send_raw = Throttler(self.send_raw, frequency)
+        self.send_raw = Throttler(self.send_raw, frequency, skip)
 
     def set_keepalive(self, interval):
         """
