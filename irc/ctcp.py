@@ -46,7 +46,10 @@ def dequote(message):
     # Perform the substitution
     message = low_level_regexp.sub(_low_level_replace, message)
 
-    if DELIMITER not in message:
+    if DELIMITER in message:
+        if message.index(DELIMITER) != 0:
+            return [message]
+    else:
         return [message]
 
     # Split it into parts.
